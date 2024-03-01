@@ -21,6 +21,7 @@ namespace Mission08_Team0210.Controllers
 
             return View(viewstuff);
         }
+
         public IActionResult Quadrants()
         {
             var viewstuff = _repo.Tasks
@@ -31,7 +32,7 @@ namespace Mission08_Team0210.Controllers
 
 
         [HttpGet]
-        public IActionResult AddTaskView()
+        public IActionResult AddEditTask()
         {
             ViewBag.categories = _repo.Categories.ToList();
             return View("AddTask", new Models.Task());
@@ -39,7 +40,7 @@ namespace Mission08_Team0210.Controllers
 
 
         [HttpPost]
-        public IActionResult AddTaskView(Models.Task task)
+        public IActionResult AddEditTask(Task task)
         {
             if (ModelState.IsValid)
             {
