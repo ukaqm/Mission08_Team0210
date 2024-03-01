@@ -11,7 +11,7 @@ public partial class Task
 
     public string? DueDate { get; set; }
 
-    public int Quadrant { get; set; }
+    public string Quadrant { get; set; }
 
     public int? CategoryId { get; set; }
 

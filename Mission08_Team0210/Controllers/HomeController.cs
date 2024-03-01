@@ -16,6 +16,7 @@ namespace Mission08_Team0210.Controllers
 
         public IActionResult Index()
         {
+
             var viewstuff = _repo.Tasks.ToList();
 
             return View(viewstuff);
