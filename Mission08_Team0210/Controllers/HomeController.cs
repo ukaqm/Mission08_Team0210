@@ -34,12 +34,12 @@ namespace Mission08_Team0210.Controllers
         public IActionResult AddTaskView()
         {
             ViewBag.categories = _repo.Categories.ToList();
-            return View("AddTask", new Task());
+            return View("AddTask", new Models.Task());
         }
 
 
         [HttpPost]
-        public IActionResult AddTaskView(Task task)
+        public IActionResult AddTaskView(Models.Task task)
         {
             if (ModelState.IsValid)
             {
@@ -64,7 +64,7 @@ namespace Mission08_Team0210.Controllers
         }
 
         [HttpPost]
-        public IActionResult Edit(Task updatedTask)
+        public IActionResult Edit(Models.Task updatedTask)
         {
             _repo.UpdateTask(updatedTask);
 
@@ -83,7 +83,7 @@ namespace Mission08_Team0210.Controllers
         }
 
         [HttpPost]
-        public IActionResult Delete(Task updatedTask)
+        public IActionResult Delete(Models.Task updatedTask)
         {
             _repo.RemoveTask(updatedTask);
 
