@@ -7,11 +7,11 @@ namespace Mission08_Team0210.Controllers
 {
     public class HomeController : Controller
     {
+        private IToDoRepository _repo;
 
-        private ToDoListContext _context;
-        public HomeController(ToDoListContext temp) // constructor
+        public HomeController(IToDoRepository temp)
         {
-            _context = temp;
+            _repo = temp;
         }
         // private readonly ILogger<HomeController> _logger;
 
@@ -22,7 +22,9 @@ namespace Mission08_Team0210.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            var viewstuff = _repo.Tasks.ToList();
+
+            return View(viewstuff);
         }
         public IActionResult Quadrants()
         {
