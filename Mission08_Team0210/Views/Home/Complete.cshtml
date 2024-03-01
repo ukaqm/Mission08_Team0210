@@ -12,6 +12,11 @@
 <form method="post">
 
     <input type="hidden" asp-for="TaskId" />
+    <input type="hidden" asp-for="TaskName" />
+    <input type="hidden" asp-for="DueDate" />
+    <input type="hidden" asp-for="Quadrant" />
+    <input type="hidden" asp-for="CategoryId" />
+    <input type="hidden" asp-for="Completed" />
 
     <button type="submit">Complete</button>
     <a class="btn btn-info" asp-controller="Home" asp-action="Quadrants">Cancel</a>
