@@ -13,12 +13,6 @@ namespace Mission08_Team0210.Controllers
         {
             _repo = temp;
         }
-        // private readonly ILogger<HomeController> _logger;
-
-        // public HomeController(ILogger<HomeController> logger)
-        // {
-        //     _logger = logger;
-        // }
 
         public IActionResult Index()
         {
@@ -28,7 +22,7 @@ namespace Mission08_Team0210.Controllers
         }
         public IActionResult Quadrants()
         {
-            var quadrants = _context.Tasks
+            var quadrants = _repo.Tasks
                 .OrderBy(x => x.TaskId).ToList();
 
             return View(quadrants);
