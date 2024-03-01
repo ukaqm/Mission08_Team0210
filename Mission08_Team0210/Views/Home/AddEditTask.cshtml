@@ -7,46 +7,59 @@
 @model Mission08_Team0210.Models.Task
 
 <form method="post">
+    <div class="container">
+        <div class="row">
+            <div class="col-4">
+                <input type="hidden" asp-for="TaskId" />
 
-    <input type="hidden" asp-for="TaskId" />
+                <select asp-for="CategoryId">
+                    <option value="">Select a Category</option>
+                    @if (ViewBag.Categories != null)
+                    {
+                        foreach (var c in ViewBag.Categories)
+                        {
+                            <option value="@c.CategoryId">@c.CategoryName</option>
+                        }
+                    }
+                </select>
+                <br />
+                <br />
 
-    <select asp-for="CategoryId">
-        <option value="">Select a Category</option>
-        @if (ViewBag.Categories != null)
-        {
-            foreach (var c in ViewBag.Categories)
-            {
-                <option value="@c.CategoryId">@c.CategoryName</option>
-            }
-        }
-        <option value="Home">Home</option>
-        <option value="School">School</option>
-        <option value="Work">Work</option>
-        <option value="Church">Church</option>
-    </select>
-   
-    <label asp-for="TaskName">Task Name:</label>
-    <input asp-for="TaskName" />
-    <br />
-    <br />
+                <label asp-for="TaskName">Task Name:</label>
+                <input asp-for="TaskName" />
+                <br />
+                <br />
 
-    <label asp-for="DueDate">Due Date</label>
-    <input asp-for="DueDate" />
-    <br />
-    <br />
+                <label asp-for="DueDate">Due Date</label>
+                <input asp-for="DueDate" />
+                <br />
+                <br />
+            </div>
+            <div class="col-4">
+                <select asp-for="Quadrant">
+                    <option value="">Select a Quadrant</option>
+                    <option value="1">Quadrant I: Important / Urgent</option>
+                    <option value="2">Quadrant II: Important / Not Urgent</option>
+                    <option value="3">Quadrant III: Not Important / Urgent</option>
+                    <option value="4">Quadrant IV: Not Important / Not Urgent</option>
+                </select>
+                <br />
+                <br />
 
-    <label asp-for="Quadrant">Quadrant</label>
-    <input asp-for="Quadrant" />
-    <br />
-    <br />
-
-    <label asp-for="Completed">Completed:</label>
-    <select asp-for="Completed">
-        <option value="true">True</option>
-        <option value="false">False</option>
-    </select>
-    <br />
-    <br />
-
-    <button type="submit">Submit</button>
+                <label asp-for="Completed">Completed:</label>
+                <select asp-for="Completed">
+                    <option value="true">True</option>
+                    <option value="false">False</option>
+                </select>
+                <br />
+                <br />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </div>
+    </div>
 </form>
+
