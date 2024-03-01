@@ -45,6 +45,7 @@ namespace Mission08_Team0210.Controllers
             if (ModelState.IsValid)
             {
                 _repo.AddTask(task);
+                return View();
             }
             else
             {
@@ -67,7 +68,7 @@ namespace Mission08_Team0210.Controllers
         [HttpPost]
         public IActionResult Edit(Models.Task updatedTask)
         {
-            _repo.UpdateTask(updatedTask);
+            _repo.Edit(updatedTask);
 
             return RedirectToAction("Quadrants");
         }
@@ -84,9 +85,9 @@ namespace Mission08_Team0210.Controllers
         }
 
         [HttpPost]
-        public IActionResult Delete(Models.Task updatedTask)
+        public IActionResult DeleteTask(Models.Task updatedTask)
         {
-            _repo.RemoveTask(updatedTask);
+            _repo.Delete(updatedTask);
 
             return RedirectToAction("Quadrants");
         }

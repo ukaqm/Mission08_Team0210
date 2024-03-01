@@ -1,4 +1,6 @@
-﻿namespace Mission08_Team0210.Models
+﻿using Microsoft.AspNetCore.Mvc;
+
+namespace Mission08_Team0210.Models
 {
     public class EFToDoRepository : IToDoRepository
     {
@@ -16,6 +18,15 @@
             _context.Add(task);
             _context.SaveChanges();
         }
-
+        public void Edit(Task task)
+        {
+            _context.Update(task);
+            _context.SaveChanges();
+        }
+        public void Delete(Task task)
+        {
+            _context.Tasks.Remove(task);
+            _context.SaveChanges();
+        }
     }
 }
