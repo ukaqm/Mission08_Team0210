@@ -91,7 +91,7 @@ namespace Mission08_Team0210.Controllers
         }
 
         [HttpGet]
-        public IActionResult MarkCompleted(int id)
+        public IActionResult Complete(int id)
         {
             var taskToComplete = _repo.Tasks
                 .Single(x => x.TaskId == id);
@@ -100,7 +100,7 @@ namespace Mission08_Team0210.Controllers
         }
 
         [HttpPost]
-        public IActionResult MarkCompleted(Models.Task taskToComplete)
+        public IActionResult Complete(Models.Task taskToComplete)
         {
             taskToComplete.Completed = true;
             _repo.Edit(taskToComplete);
