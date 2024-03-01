@@ -45,7 +45,7 @@ namespace Mission08_Team0210.Controllers
             if (ModelState.IsValid)
             {
                 _repo.AddTask(task);
-                return View();
+                return RedirectToAction("Quadrants");
             }
             else
             {
