@@ -13,16 +13,19 @@ namespace Mission08_Team0210.Controllers
         {
             _repo = temp;
         }
+
         public IActionResult Index()
         {
-            return View();
+
             var viewstuff = _repo.Tasks.ToList();
 
             return View(viewstuff);
         }
         public IActionResult Quadrants()
         {
+
             var quadrants = _repo.Tasks
+
                 .OrderBy(x => x.TaskId).ToList();
 
             return View(quadrants);
