@@ -20,3 +20,30 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+.quadrant {
+    border: 1px solid black; /* Thin black line outline */
+    padding: 10px; /* Add padding for better spacing */
+    text-align: center; /* Center align text */
+    border-radius: 5px; /* Add rounded corners */
+}
+
+.title {
+    background-color: #999999; /* Light red for Urgent & Important quadrant */
+}
+
+.urgent-important {
+    background-color: #ffcccc; /* Light red for Urgent & Important quadrant */
+}
+
+.not-urgent-important {
+    background-color: #ccffcc; /* Light green for Not Urgent & Important quadrant */
+}
+
+.urgent-not-important {
+    background-color: #ffffcc; /* Light yellow for Urgent & Not Important quadrant */
+}
+
+.not-urgent-not-important {
+    background-color: #ccccff; /* Light blue for Not Urgent & Not Important quadrant */
+}
