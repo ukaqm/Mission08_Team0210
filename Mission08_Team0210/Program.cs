@@ -6,11 +6,6 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
-builder.Services.AddDbContext<ToDoListContext>(options =>
-{
-    options.UseSqlite(builder.Configuration["ConnectionStrings:ToDoConnection"]);
-});
-
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
