@@ -6,16 +6,18 @@ namespace Mission08_Team0210.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private IToDoRepository _repo;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(IToDoRepository temp)
         {
-            _logger = logger;
+            _repo = temp;
         }
 
         public IActionResult Index()
         {
-            return View();
+            var viewstuff = _repo.Tasks.ToList();
+
+            return View(viewstuff);
         }
     }
 }
