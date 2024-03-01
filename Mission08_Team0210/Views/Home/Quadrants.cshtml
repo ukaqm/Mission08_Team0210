@@ -4,7 +4,7 @@
 @{
 }
 @model List<Mission08_Team0210.Models.Task>
-
+<!--Create a table with a title cell-->
 <div class="container">
     <div class="row">
         <div class="col quadrant title">
@@ -12,6 +12,7 @@
         </div>
     </div>
     <div class="row">
+        <!--Display all tasks for quadrant 1 with 3 buttons for each (complete, delete, edit), only show not completed tasks-->
         <div class="col-6 quadrant urgent-important">
             <h2>Urgent & Important</h2>
             @foreach (var x in Model.Where(x => x.Completed == false).Where(x => x.Quadrant == "Quadrant I: Important / Urgent"))
@@ -30,6 +31,7 @@
                 </div>
             }
         </div>
+        <!--Display all tasks for quadrant 2 with 3 buttons for each (complete, delete, edit), only show not completed tasks-->
         <div class="col-6 quadrant not-urgent-important">
             <h2>Not Urgent & Important</h2>
             @foreach (var x in Model.Where(x => x.Completed == false).Where(x => x.Quadrant == "Quadrant II: Important / Not Urgent"))
@@ -49,6 +51,7 @@
             }
         </div>
     </div>
+    <!--Display all tasks for quadrant 3 with 3 buttons for each (complete, delete, edit), only show not completed tasks-->
     <div class="row">
         <div class="col-6 quadrant urgent-not-important">
             <h2>Urgent & Not Important</h2>
@@ -68,6 +71,7 @@
                 </div>
             }
         </div>
+        <!--Display all tasks for quadrant 4 with 3 buttons for each (complete, delete, edit), only show not completed tasks-->
         <div class="col-6 quadrant not-urgent-not-important">
             <h2>Not Urgent & Not Important</h2>
             @foreach (var x in Model.Where(x => x.Completed == false).Where(x => x.Quadrant == "Quadrant IV: Not Important / Not Urgent"))
