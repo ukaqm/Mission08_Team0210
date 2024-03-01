@@ -40,11 +40,12 @@ namespace Mission08_Team0210.Controllers
 
 
         [HttpPost]
-        public IActionResult AddEditTask(Task task)
+        public IActionResult AddEditTask(Models.Task task)
         {
             if (ModelState.IsValid)
             {
                 _repo.AddTask(task);
+                return View();
             }
             else
             {
