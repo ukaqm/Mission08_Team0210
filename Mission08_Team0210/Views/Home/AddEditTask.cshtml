@@ -4,14 +4,16 @@
 @{
 }
 
+<!--bring in the model, split into grid layout, and have the form with information to fill out.-->
 @model Mission08_Team0210.Models.Task
-
 <form method="post">
     <div class="container">
         <div class="row">
             <div class="col-4">
                 <input type="hidden" asp-for="TaskId" />
 
+
+                <label asp-for=CategoryId:></label>
                 <select asp-for="CategoryId">
                     <option value="">Select a Category</option>
                     @if (ViewBag.Categories != null)
@@ -37,6 +39,7 @@
                 <br />
             </div>
             <div class="col-4">
+                <label asp-for=Quadrant:></label>
                 <select asp-for="Quadrant">
                     <option>Select a Quadrant</option>
                     <option>Quadrant I: Important / Urgent</option>
