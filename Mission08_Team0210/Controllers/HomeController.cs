@@ -32,7 +32,7 @@ namespace Mission08_Team0210.Controllers
 
 
         [HttpGet]
-        public IActionResult AddTaskView()
+        public IActionResult AddEditTask()
         {
             ViewBag.categories = _repo.Categories.ToList();
             return View("AddTask", new Task());
@@ -40,7 +40,7 @@ namespace Mission08_Team0210.Controllers
 
 
         [HttpPost]
-        public IActionResult AddTaskView(Task task)
+        public IActionResult AddEditTask(Task task)
         {
             if (ModelState.IsValid)
             {
