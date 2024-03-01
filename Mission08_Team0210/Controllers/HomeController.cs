@@ -13,15 +13,10 @@ namespace Mission08_Team0210.Controllers
         {
             _repo = temp;
         }
-        // private readonly ILogger<HomeController> _logger;
-
-        // public HomeController(ILogger<HomeController> logger)
-        // {
-        //     _logger = logger;
-        // }
 
         public IActionResult Index()
         {
+
             var viewstuff = _repo.Tasks.ToList();
 
             return View(viewstuff);
@@ -29,10 +24,74 @@ namespace Mission08_Team0210.Controllers
 
         public IActionResult Quadrants()
         {
-            var quadrants = _repo.Tasks
+            var viewstuff = _repo.Tasks
                 .OrderBy(x => x.TaskId).ToList();
 
-            return View(quadrants);
+            return View(viewstuff);
         }
+
+
+        [HttpGet]
+        public IActionResult AddTaskView()
+        {
+            ViewBag.categories = _repo.Categories.ToList();
+            return View("AddTask", new Task());
+        }
+
+
+        [HttpPost]
+        public IActionResult AddTaskView(Task task)
+        {
+            if (ModelState.IsValid)
+            {
+                _repo.AddTask(task);
+            }
+            else
+            {
+                ViewBag.categories = _repo.Categories.ToList();
+                return View(task);
+            }
+        }
+
+        [HttpGet]
+        public IActionResult Edit(int id)
+        {
+            var recordToEdit = _repo.Tasks
+                .Single(x => x.TaskId == id);
+
+            ViewBag.categories = _repo.Categories.ToList();
+
+            return View("AddTask", recordToEdit);
+        }
+
+        [HttpPost]
+        public IActionResult Edit(Task updatedTask)
+        {
+            _repo.UpdateTask(updatedTask);
+
+            return RedirectToAction("Quadrants");
+        }
+
+        [HttpGet]
+        public IActionResult Delete(int id)
+        {
+            var taskToDelete = _repo.Tasks
+                .Single(x => x.TaskId == id);
+
+            ViewBag.categories = _repo.Categories.ToList();
+
+            return View(taskToDelete);
+        }
+
+        [HttpPost]
+        public IActionResult Delete(Task updatedTask)
+        {
+            _repo.RemoveTask(updatedTask);
+
+            return RedirectToAction("Quadrants");
+        }
+
+
+
     }
 }

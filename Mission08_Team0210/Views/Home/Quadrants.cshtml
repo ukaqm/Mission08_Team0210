@@ -14,26 +14,34 @@
     <div class="row">
         <div class="col quadrant urgent-important">
             <h2>Urgent & Important</h2>
-            @foreach (var x in Model.Where(x => x.Quadrant == 1))
+            @foreach (var x in Model.Where(x => x.Completed == false).Where(x => x.Quadrant == 1))
             {
                 <div class="row">
                     <div class="col">
-                        <h4>@x.TaskName</h4>
-                        <a class="btn btn-info" asp-controller="Home" asp-action="Edit" asp-route-id="@x.TaskId">Edit</a>
-                        <a class="btn btn-danger" asp-controller="Home" asp-action="Delete" asp-route-id="@x.TaskId">Delete</a>
+                        <div class="d-flex align-items-center justify-content-between">
+                            <h4>@x.TaskName</h4>
+                            <div class="btn-group">
+                                <a class="btn btn-info" asp-controller="Home" asp-action="Edit" asp-route-id="@x.TaskId">Edit</a>
+                                <a class="btn btn-danger" asp-controller="Home" asp-action="Delete" asp-route-id="@x.TaskId">Delete</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             }
         </div>
         <div class="col quadrant not-urgent-important">
             <h2>Not Urgent & Important</h2>
-            @foreach (var x in Model.Where(x => x.Quadrant == 2))
+            @foreach (var x in Model.Where(x => x.Completed == false).Where(x => x.Quadrant == 2))
             {
                 <div class="row">
                     <div class="col">
-                        <h4>@x.TaskName</h4>
-                        <a class="btn btn-info" asp-controller="Home" asp-action="Edit" asp-route-id="@x.TaskId">Edit</a>
-                        <a class="btn btn-danger" asp-controller="Home" asp-action="Delete" asp-route-id="@x.TaskId">Delete</a>
+                        <div class="d-flex align-items-center justify-content-between">
+                            <h4>@x.TaskName</h4>
+                            <div class="btn-group">
+                                <a class="btn btn-info" asp-controller="Home" asp-action="Edit" asp-route-id="@x.TaskId">Edit</a>
+                                <a class="btn btn-danger" asp-controller="Home" asp-action="Delete" asp-route-id="@x.TaskId">Delete</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             }
@@ -42,26 +50,34 @@
     <div class="row">
         <div class="col quadrant urgent-not-important">
             <h2>Urgent & Not Important</h2>
-            @foreach (var x in Model.Where(x => x.Quadrant == 3))
+            @foreach (var x in Model.Where(x => x.Completed == false).Where(x => x.Quadrant == 3))
             {
                 <div class="row">
                     <div class="col">
-                        <h4>@x.TaskName</h4>
-                        <a class="btn btn-info" asp-controller="Home" asp-action="Edit" asp-route-id="@x.TaskId">Edit</a>
-                        <a class="btn btn-danger" asp-controller="Home" asp-action="Delete" asp-route-id="@x.TaskId">Delete</a>
+                        <div class="d-flex align-items-center justify-content-between">
+                            <h4>@x.TaskName</h4>
+                            <div class="btn-group">
+                                <a class="btn btn-info" asp-controller="Home" asp-action="Edit" asp-route-id="@x.TaskId">Edit</a>
+                                <a class="btn btn-danger" asp-controller="Home" asp-action="Delete" asp-route-id="@x.TaskId">Delete</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             }
         </div>
         <div class="col quadrant not-urgent-not-important">
             <h2>Not Urgent & Not Important</h2>
-            @foreach (var x in Model.Where(x => x.Quadrant == 4))
+            @foreach (var x in Model.Where(x => x.Completed == false).Where(x => x.Quadrant == 4))
             {
                 <div class="row">
                     <div class="col">
-                        <h4>@x.TaskName</h4>
-                        <a class="btn btn-info" asp-controller="Home" asp-action="Edit" asp-route-id="@x.TaskId">Edit</a>
-                        <a class="btn btn-danger" asp-controller="Home" asp-action="Delete" asp-route-id="@x.TaskId">Delete</a>
+                        <div class="d-flex align-items-center justify-content-between">
+                            <h4>@x.TaskName</h4>
+                            <div class="btn-group">
+                                <a class="btn btn-info" asp-controller="Home" asp-action="Edit" asp-route-id="@x.TaskId">Edit</a>
+                                <a class="btn btn-danger" asp-controller="Home" asp-action="Delete" asp-route-id="@x.TaskId">Delete</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             }

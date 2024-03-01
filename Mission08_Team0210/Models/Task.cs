@@ -11,11 +11,11 @@ public partial class Task
 
     public string? DueDate { get; set; }
 
-    public int Quadrant { get; set; }
+    public string Quadrant { get; set; }
 
     public int? CategoryId { get; set; }
 
-    public int? Completed { get; set; }
+    public bool? Completed { get; set; }
 
     public virtual Category? Category { get; set; }
 }
