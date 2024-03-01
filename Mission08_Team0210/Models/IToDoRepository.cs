@@ -6,6 +6,7 @@
         List<Category> Categories { get; }
 
         public void AddTask(Task task);
-
+        public void Edit(Task task);
+        public void Delete(Task task);
     }
 }
