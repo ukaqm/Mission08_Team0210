@@ -79,7 +79,7 @@ namespace Mission08_Team0210.Controllers
             var taskToDelete = _repo.Tasks
                 .Single(x => x.TaskId == id);
 
-            return View("Quadrants", taskToDelete);
+            return View(taskToDelete);
         }
 
         [HttpPost]
