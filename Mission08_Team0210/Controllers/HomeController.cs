@@ -35,7 +35,7 @@ namespace Mission08_Team0210.Controllers
         public IActionResult AddEditTask()
         {
             ViewBag.categories = _repo.Categories.ToList();
-            return View("AddTask", new Models.Task());
+            return View("AddEditTask", new Models.Task());
         }
 
 
@@ -62,7 +62,7 @@ namespace Mission08_Team0210.Controllers
 
             ViewBag.categories = _repo.Categories.ToList();
 
-            return View("AddTask", recordToEdit);
+            return View("AddEditTask", recordToEdit);
         }
 
         [HttpPost]
