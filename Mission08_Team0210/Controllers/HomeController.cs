@@ -90,9 +90,23 @@ namespace Mission08_Team0210.Controllers
             return RedirectToAction("Quadrants");
         }
 
+        [HttpGet]
+        public IActionResult MarkCompleted(int id)
+        {
+            var taskToComplete = _repo.Tasks
+                .Single(x => x.TaskId == id);
 
+            return View(taskToComplete);
+        }
 
+        [HttpPost]
+        public IActionResult MarkCompleted(Models.Task taskToComplete)
+        {
+            taskToComplete.Completed = true;
+            _repo.Edit(taskToComplete);
 
+            return RedirectToAction("Quadrants");
+        }
 
     }
 }
