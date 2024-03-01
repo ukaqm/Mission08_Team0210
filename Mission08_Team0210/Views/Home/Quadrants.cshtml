@@ -12,7 +12,7 @@
         </div>
     </div>
     <div class="row">
-        <div class="col quadrant urgent-important">
+        <div class="col-6 quadrant urgent-important">
             <h2>Urgent & Important</h2>
             @foreach (var x in Model.Where(x => x.Completed == false).Where(x => x.Quadrant == "Quadrant I: Important / Urgent"))
             {
@@ -30,7 +30,7 @@
                 </div>
             }
         </div>
-        <div class="col quadrant not-urgent-important">
+        <div class="col-6 quadrant not-urgent-important">
             <h2>Not Urgent & Important</h2>
             @foreach (var x in Model.Where(x => x.Completed == false).Where(x => x.Quadrant == "Quadrant II: Important / Not Urgent"))
             {
@@ -50,7 +50,7 @@
         </div>
     </div>
     <div class="row">
-        <div class="col quadrant urgent-not-important">
+        <div class="col-6 quadrant urgent-not-important">
             <h2>Urgent & Not Important</h2>
             @foreach (var x in Model.Where(x => x.Completed == false).Where(x => x.Quadrant == "Quadrant III: Not Important / Urgent"))
             {
@@ -68,7 +68,7 @@
                 </div>
             }
         </div>
-        <div class="col quadrant not-urgent-not-important">
+        <div class="col-6 quadrant not-urgent-not-important">
             <h2>Not Urgent & Not Important</h2>
             @foreach (var x in Model.Where(x => x.Completed == false).Where(x => x.Quadrant == "Quadrant IV: Not Important / Not Urgent"))
             {

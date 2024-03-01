@@ -45,7 +45,7 @@ namespace Mission08_Team0210.Controllers
             if (ModelState.IsValid)
             {
                 _repo.AddTask(task);
-                return View();
+                return RedirectToAction("Quadrants");
             }
             else
             {
@@ -90,9 +90,25 @@ namespace Mission08_Team0210.Controllers
             return RedirectToAction("Quadrants");
         }
 
+        [HttpGet]
+        public IActionResult Complete(int id)
+        {
+            var taskToComplete = _repo.Tasks
+                .Single(x => x.TaskId == id);
 
+            ViewBag.categories = _repo.Categories.ToList();
 
+            return View(taskToComplete);
+        }
 
+        [HttpPost]
+        public IActionResult Complete(Models.Task taskToComplete)
+        {
+            taskToComplete.Completed = true;
+            _repo.Edit(taskToComplete);
+
+            return RedirectToAction("Quadrants");
+        }
 
     }
 }
