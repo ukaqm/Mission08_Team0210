@@ -79,18 +79,18 @@ namespace Mission08_Team0210.Controllers
             var taskToDelete = _repo.Tasks
                 .Single(x => x.TaskId == id);
 
-            ViewBag.categories = _repo.Categories.ToList();
-
-            return View(taskToDelete);
+            return View("Quadrants", taskToDelete);
         }
 
         [HttpPost]
-        public IActionResult DeleteTask(Models.Task updatedTask)
+        public IActionResult Delete(Models.Task updatedTask)
         {
             _repo.Delete(updatedTask);
 
             return RedirectToAction("Quadrants");
         }
+
+
 
 
 
