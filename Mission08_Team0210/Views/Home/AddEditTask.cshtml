@@ -13,7 +13,7 @@
                 <input type="hidden" asp-for="TaskId" />
 
 
-                <label asp-for=CategoryId></label>
+                <label asp-for=CategoryId>Category:</label>
                 <select asp-for="CategoryId">
                     <option value="">Select a Category</option>
                     @if (ViewBag.Categories != null)
@@ -39,7 +39,7 @@
                 <br />
             </div>
             <div class="col-4">
-                <label asp-for=Quadrant:></label>
+                <label asp-for=Quadrant>Quadrant:</label>
                 <select asp-for="Quadrant">
                     <option>Select a Quadrant</option>
                     <option>Quadrant I: Important / Urgent</option>
