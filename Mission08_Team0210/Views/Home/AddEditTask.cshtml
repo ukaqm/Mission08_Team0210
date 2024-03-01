@@ -10,17 +10,21 @@
 
     <input type="hidden" asp-for="TaskId" />
 
-    <br />
     <select asp-for="CategoryId">
         <option value="">Select a Category</option>
-        @foreach (var c in ViewBag.Categories)
+        @if (ViewBag.Categories != null)
         {
-            <option value="@c.CategoryId">@c.Category</option>
+            foreach (var c in ViewBag.Categories)
+            {
+                <option value="@c.CategoryId">@c.CategoryName</option>
+            }
         }
+        <option value="Home">Home</option>
+        <option value="School">School</option>
+        <option value="Work">Work</option>
+        <option value="Church">Church</option>
     </select>
-    <br />
-    <br />
-
+   
     <label asp-for="TaskName">Task Name:</label>
     <input asp-for="TaskName" />
     <br />
@@ -33,16 +37,6 @@
 
     <label asp-for="Quadrant">Quadrant</label>
     <input asp-for="Quadrant" />
-    <br />
-    <br />
-
-    <label asp-for="Category">Category:</label>
-    <select asp-for="Category.CategoryId">
-        <option value="Home">Home</option>
-        <option value="School">School</option>
-        <option value="Work">Work</option>
-        <option value="Church">Church</option>
-    </select>
     <br />
     <br />
 
