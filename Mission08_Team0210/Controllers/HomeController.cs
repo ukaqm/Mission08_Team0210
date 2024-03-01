@@ -26,9 +26,10 @@ namespace Mission08_Team0210.Controllers
 
             return View(viewstuff);
         }
+
         public IActionResult Quadrants()
         {
-            var quadrants = _context.Tasks
+            var quadrants = _repo.Tasks
                 .OrderBy(x => x.TaskId).ToList();
 
             return View(quadrants);
