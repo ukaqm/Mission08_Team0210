@@ -96,6 +96,8 @@ namespace Mission08_Team0210.Controllers
             var taskToComplete = _repo.Tasks
                 .Single(x => x.TaskId == id);
 
+            ViewBag.categories = _repo.Categories.ToList();
+
             return View(taskToComplete);
         }
 
