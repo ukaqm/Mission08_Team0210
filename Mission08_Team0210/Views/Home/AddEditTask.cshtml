@@ -27,6 +27,7 @@
 
                 <label asp-for="TaskName">Task Name:</label>
                 <input asp-for="TaskName" />
+                <span asp-validation-for="TaskName" class=text-danger></span>
                 <br />
                 <br />
 
@@ -48,8 +49,8 @@
 
                 <label asp-for="Completed">Completed:</label>
                 <select asp-for="Completed">
-                    <option value="true">True</option>
                     <option value="false">False</option>
+                    <option value="true">True</option>
                 </select>
                 <br />
                 <br />
